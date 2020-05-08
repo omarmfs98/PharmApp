@@ -63,7 +63,7 @@ public class ExplorarActivity extends FragmentActivity implements OnMapReadyCall
         LatLng latLng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
         MarkerOptions markerOptions = new MarkerOptions().position(latLng).title("Aqui estoy yo");
         mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 5));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
         mMap.addMarker(markerOptions);
     }
     @Override
