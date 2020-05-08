@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
@@ -48,7 +47,6 @@ public class ExplorarActivity extends FragmentActivity implements OnMapReadyCall
             public void onSuccess(Location location) {
                 if (location != null) {
                     currentLocation = location;
-                    Toast.makeText(getApplicationContext(), currentLocation.getLatitude() + "" + currentLocation.getLongitude(), Toast.LENGTH_SHORT).show();
                     SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                             .findFragmentById(R.id.map);
                     mapFragment.getMapAsync(ExplorarActivity.this);
@@ -63,7 +61,7 @@ public class ExplorarActivity extends FragmentActivity implements OnMapReadyCall
         LatLng latLng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
         MarkerOptions markerOptions = new MarkerOptions().position(latLng).title("Aqui estoy yo");
         mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 14));
         mMap.addMarker(markerOptions);
     }
     @Override
